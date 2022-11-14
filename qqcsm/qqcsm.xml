@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<qqcsSettings>
+  <ConnectString>
+    Data Source=172.16.6.11;Initial Catalog=worklog01;User ID=root;Password=password
+  </ConnectString>
+  <MaxRecordCount>1000</MaxRecordCount>
+  <Query id="0">
+    <Name>日報検索 作業</Name>
+    <SQL>
+      SELECT
+        operation_date
+        , process_name
+        , operation_hours
+        , employee_name
+      FROM
+        uv_daily_journal v
+      WHERE
+        process_id = 1
+      ORDER BY
+        operation_date
+        , detail_id
+    </SQL>
+    <Param id="0">
+      <Name>集計日</Name>
+      <Value>20210430</Value>
+    </Param>
+  </Query>
+  <Query id="1">
+    <Name>日報検索 社員</Name>
+    <SQL>
+      SELECT
+      operation_date
+      , process_name
+      , operation_hours
+      , employee_name
+      FROM
+      uv_daily_journal v
+      WHERE
+      process_id = 1
+      ORDER BY
+      operation_date
+      , detail_id
+    </SQL>
+    <Param id="0">
+      <Name>対象年月</Name>
+      <Value>20200131</Value>
+    </Param>
+  </Query>
+  <Query id="2">
+    <Name>日報検索 作業時間</Name>
+    <SQL>
+      SELECT
+      operation_date
+      , process_name
+      , operation_hours
+      , employee_name
+      FROM
+      uv_daily_journal v
+      WHERE
+      process_id = 1
+      ORDER BY
+      operation_date
+      , detail_id
+    </SQL>    <Param id="0">
+      <Name>伝票開始</Name>
+      <Value>20210101</Value>
+    </Param>
+    <Param id="1">
+      <Name>伝票終了</Name>
+      <Value>20211231</Value>
+    </Param>
+    <Param id="2">
+      <Name>納品開始</Name>
+      <Value>0</Value>
+    </Param>
+    <Param id="3">
+      <Name>納品終了</Name>
+      <Value>99999999</Value>
+    </Param>
+  </Query>
+</qqcsSettings>
